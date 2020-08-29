@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Sistema de administracion de becas BitLab" />
+        <meta name="author" content="equipo desarrollo bitlab" />
+        <meta name="keyword" content="Sistema Administracion Becas BitLab JavaEE" />
+        <link rel="shortcut icon" href="vendors/img/favicon.png" />
+        <title>Sistema Administracion Becas - BITLAB</title>
+        <!-- Icons -->
+        <link href="vendors/css/font-awesome.min.css" rel="stylesheet" />
+        <!--<h:outputStylesheet name="css/font-awesome.min.css" />-->
+        <link href="vendors/css/simple-line-icons.min.css" rel="stylesheet" />
+        <!--<h:outputStylesheet name="css/simple-line-icons.min.css" />-->
+        <!-- Main styles for this application -->
+        <link href="vendors/css/style.css" rel="stylesheet" />
+        <!--<h:outputStylesheet name="css/style.css" />-->
+    </h:head>
+    <h:body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
+        <header class="app-header navbar">
+            <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul class="nav navbar-nav d-md-down-none">
+                <li class="nav-item px-3">
+                    <a class="nav-link" href="#">Dashboard</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a class="nav-link" href="#">Configuraciones</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item d-md-down-none">
+                    <a class="nav-link" href="#" data-toggle="dropdown">
+                        <i class="icon-bell"></i>
+                        <span class="badge badge-pill badge-danger">5</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <div class="dropdown-header">
+                            <strong>Notificaciones</strong>
+                        </div>
+                        <a class="dropdown-item" href="#">
+                            <i class="fa fa-envelope-o"></i> Becas
+                            <span class="badge badge-success">3</span>
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fa fa-tasks"></i> Admision
+                            <span class="badge badge-danger">2</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                        <img src="vendors/img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com" />
+                        <span class="d-md-down-none">Usuario </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <div class="dropdown-header text-center">
+                            <strong>Cuenta</strong>
+                        </div>
+                        <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Perfil</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-lock"></i> Cerrar sesión</a>
+                    </div>
+                </li>
+            </ul>
+        </header>
+
+        <div class="app-body">
+            <div class="sidebar">
+                <nav class="sidebar-nav">
+                    <ul class="nav">
+                        <li class="nav-title">
+                            <a class="nav-link active" href="#"><i class="icon-speedometer"></i> Menu Principal</a>
+                        </li>
+                        <li class="nav-title">
+                            
+                        </li>
+                        <li class="nav-item nav-dropdown">
+                            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-bag"></i> Menu 1</a>
+                            <ul class="nav-dropdown-items">
+                                <li class="nav-item">
+                                    <h:link class="nav-link" outcome="/catalogoAdmin/roles" value="Gestionar Roles" />
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="icon-bag"></i> opcion</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-dropdown">
+                            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-wallet"></i> Menu 2</a>
+                            <ul class="nav-dropdown-items">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="i#"><i class="icon-wallet"></i> opcion</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="icon-notebook"></i> opcion</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-dropdown">
+                            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-basket"></i> Menu 3</a>
+                            <ul class="nav-dropdown-items">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="i#"><i class="icon-basket-loaded"></i> opcion</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="icon-notebook"></i> opcion</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-dropdown">
+                            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-people"></i> Menu 4</a>
+                            <ul class="nav-dropdown-items">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="i#"><i class="icon-user"></i> opcion</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="icon-user-following"></i> opcion</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-dropdown">
+                            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-pie-chart"></i> Reportes</a>
+                            <ul class="nav-dropdown-items">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="i#"><i class="icon-chart"></i> Reporte</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"><i class="icon-chart"></i> Reporte</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="main.html"><i class="icon-book-open"></i> Ayuda <span class="badge badge-danger">PDF</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="main.html"><i class="icon-info"></i> Acerca de...<span class="badge badge-info">IT</span></a>
+                        </li>
+                    </ul>
+                </nav>
+                <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+            </div>
+
+            <!-- Contenido Principal -->
+            <main class="main">
+                <!-- Breadcrumb -->
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item">Sistema de Administracion de Becas</li>
+                </ol>
+                <div class="container-fluid">
+                    <!-- Ejemplo de tabla Listado -->
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fa fa-align-justify"></i> Opciones del catalogo
+                            <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#modalNuevo">
+                                <i class="icon-plus"></i>&nbsp;Nuevo
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <!--aqui va los formularios-->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fin ejemplo de tabla Listado -->
+                </div>
+            </main>
+            <!-- /Fin del contenido principal -->
+        </div>
+
+
+
+        <footer class="app-footer">
+            <span><a href="https://bitlab.edu.sv/">BitLab Skills Academy</a> &copy; 2020</span>
+            <span class="ml-auto">Desarrollado por <a href="http://www.echo.sv/">Echo Academy</a></span>
+        </footer>
+
+        <!-- Bootstrap and necessary plugins -->
+        <script src="vendors/js/jquery.min.js"></script>
+        <!--<h:outputScript  name="js/jquery.min.js" />-->
+        <script src="vendors/js/popper.min.js"></script>
+        <!--<h:outputScript  name="js/popper.min.js" />-->
+        <script src="vendors/js/bootstrap.min.js"></script>
+        <!--<h:outputScript  name="js/bootstrap.min.js" />-->
+        <script src="vendors/js/pace.min.js"></script>
+        <!--<h:outputScript  name="js/pace.min.js" />-->
+        <!-- Plugins and scripts required by all views -->
+        <script src="vendors/js/Chart.min.js"></script>
+        <!--<h:outputScript  name="js/Chart.min.js" />-->
+        <!-- GenesisUI main scripts -->
+        <script src="vendors/js/template.js"></script>
+        <!--<h:outputScript  name="js/template.js" />-->
+    </h:body>
+</html>
+
