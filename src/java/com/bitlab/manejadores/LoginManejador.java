@@ -49,11 +49,9 @@ public class LoginManejador {
                     System.out.println("CONTRASENA NO VALIDA");
                 }
             }
-
         } catch (Exception ex) {
             Logger.getLogger(LoginManejador.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     public String getUsuario() {
@@ -71,5 +69,4 @@ public class LoginManejador {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }
