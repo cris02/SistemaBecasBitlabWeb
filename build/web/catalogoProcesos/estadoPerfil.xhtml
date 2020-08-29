@@ -2,8 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
@@ -34,7 +33,7 @@
                             <p:column headerText="Id Estado" style="text-align: center" sortBy="#{estadoPerfil.estPerIdPk}" filterBy="#{estadoPerfil.estPerIdPk}" filterMatchMode="contains">
                                 <h:outputText value="#{estadoPerfil.estPerIdPk}" />
                             </p:column>
-                            <p:column headerText="Nomnre" sortBy="#{estadoPerfil.estPerNombre}" filterBy="#{estadoPerfil.estPerNombre}" filterMatchMode="contains">
+                            <p:column headerText="Nombre" sortBy="#{estadoPerfil.estPerNombre}" filterBy="#{estadoPerfil.estPerNombre}" filterMatchMode="contains">
                                 <h:outputText value="#{estadoPerfil.estPerNombre}" />
                             </p:column>
                             <p:column headerText="Descripcion" sortBy="#{estadoPerfil.estPerDescripcion}" filterBy="#{estadoPerfil.estPerDescripcion}" filterMatchMode="contains">
@@ -51,8 +50,6 @@
                     <h:form id="formDetailRol" >
                         <p:dialog widgetVar="detailDialog" modal="true" header="Detalle de Rol" responsive="true">
                             <p:panelGrid columns="4" >
-                                <h:outputText value="ID Rol" />
-                                <p:inputText value="#{estadoPerfilManejador.entidadSeleccionada.estPerIdPk}" class="ui-md-12" disabled="true" />
                                 <h:outputText value="Nombre" />
                                 <p:inputText value="#{estadoPerfilManejador.entidadSeleccionada.estPerNombre}" />
                                 <h:outputText value="Descripcion" />
