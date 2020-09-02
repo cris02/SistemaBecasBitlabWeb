@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-header text-center badge-primary">
+                        <i class="fas fa-table mr-1"></i>
+                        Modulo de Administracion de Profesor
+                    </div>
+
+                    <!--Aplicando estilos CSS-->
+                    <style type="text/css">
+                        .ui-g div {
+                            /*background-color: #ededed;*/
+                            text-align: center;
+                            border: 1px solid #fafafa;
+                        }
+                    </style>
+
+                    <p:growl id="messages" globalOnly="true" showDetail="true" />
+                    <p:messages id="messagesAll" closable="true" />
+
+                    <!--Formulario de Usuario-->
+                    <h:form id="formUsuario">
+                        <p:dataTable var="profesor" value="#{profesorManejador.entidadLista}" paginator="true" rows="5" reflow="true" >
+                            <p:column headerText="Id Usuario" style="text-align: center " sortBy="#{profesor.proIdPk}" filterBy="#{profesor.proIdPk}" filterMatchMode="contains">
+                                <h:outputText value="#{profesor.proIdPk}" />
+                            </p:column>
+                            <p:column headerText="Nombre" sortBy="#{profesor.proNombres}" filterBy="#{profesor.proNombres}" filterMatchMode="contains">
+                                <h:outputText value="#{profesor.proNombres}" />
+                            </p:column>
+                            <p:column headerText="Apellido" sortBy="#{profesor.proApellidos}" filterBy="#{profesor.proApellidos}" filterMatchMode="contains">
+                                <h:outputText value="#{profesor.proApellidos}" />
+                            </p:column>
+                            <p:column headerText="Telefono" sortBy="#{profesor.proTelefono}" filterBy="#{profesor.proTelefono}" filterMatchMode="contains">
+                                <h:outputText value="#{profesor.proTelefono}" />
+                            </p:column>
+                            <p:column headerText="Correo" sortBy="#{profesor.proCorreo}" filterBy="#{profesor.proCorreo}" filterMatchMode="contains">
+                                <h:outputText value="#{profesor.proCorreo}" />
+                            </p:column>
+                            <p:column headerText="Direccion" sortBy="#{profesor.proDireccion}" filterBy="#{profesor.proDireccion}" filterMatchMode="contains">
+                                <h:outputText value="#{profesor.proDireccion}" />
+                            </p:column>
+                            <p:column headerText="Titulo" sortBy="#{profesor.proTitulo}" filterBy="#{profesor.proTitulo}" filterMatchMode="contains">
+                                <h:outputText value="#{profesor.proTitulo}" />
+                            </p:column>
+                            
+                            <p:column headerText="OPCION" style="width:70px; text-align: center ">
+
+                                <p:commandButton update=":formDetailUser" oncomplete="PF('detailDialog').show()" icon="pi pi-search" title="Ver">
+                                    <f:setPropertyActionListener value="#{profesor}" target="#{profesorManejador.entidadSeleccionada}" />
+                                </p:commandButton>
+                                <p:commandButton actionListener="#{profesorManejador.nuevaEntidad()}" update=":formDetailUser" title="Crear"
+                                                 oncomplete="PF('detailDialog').show()" icon="pi pi-plus-circle" />
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+
+                    <!--detalle del formulario usuario-->
+                    <h:form id="formDetailUser">
+                        <p:dialog widgetVar="detailDialog" modal="true" header="Detalle del Usuario" >
+                            <p:panelGrid columns="4" >
+                                <h:outputText value="ID Usuario" />
+                                <p:inputText value="#{profesorManejador.entidadSeleccionada.proIdPk}" disabled="true" />
+                                <h:outputText value="Nombre" />
+                                <p:inputText value="#{profesorManejador.entidadSeleccionada.proNombres}" />
+                                <h:outputText value="Apellido" />
+                                <p:inputText value="#{profesorManejador.entidadSeleccionada.proApellidos}" />
+                                <h:outputText value="Telefono" />
+                                <p:inputText value="#{profesorManejador.entidadSeleccionada.proTelefono}" />
+                                <h:outputText value="Correo" />
+                                <p:inputText value="#{profesorManejador.entidadSeleccionada.proCorreo}" />
+                                <h:outputText value="Titulo" />
+                                <p:inputText value="#{profesorManejador.entidadSeleccionada.proTitulo}" />
+                                <h:outputText value="Direccion" />
+                                <p:inputText value="#{profesorManejador.entidadSeleccionada.proDireccion}" />
+                                
+                                <h:outputText value="Usuario"/>
+                                <p:selectOneMenu value="#{profesorManejador.entidadSeleccionada.usuIdFk}" converter="usuarioConverter" >
+                                    <f:selectItems value="#{profesorManejador.listUsuarios}" var="users" itemLabel="#{users.usuUser}" itemValue="#{users}" />
+                                </p:selectOneMenu>
+                            </p:panelGrid>
+
+                            <p:panelGrid>
+                                <div class="ui-g badge-light">
+                                    <div class="ui-md-12">
+                                        <p:commandButton value="Guardar" actionListener="#{profesorManejador.guardarEntidad()}" onsuccess="PF('detailDialog').hide()"  update=":messages :formUsuario :messagesAll"/>
+                                        <p:commandButton value="Eliminar" actionListener="#{profesorManejador.eliminarEntidad()}"  update=":messages :formUsuario :messagesAll" onsuccess="PF('detailDialog').hide()" />
+                                    </div>
+                                </div>
+
+                            </p:panelGrid>
+                        </p:dialog>
+                    </h:form>
+
+                    <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+                    <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                        <h:outputLabel value="Cargando..." />
+                    </p:dialog>
+
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+
