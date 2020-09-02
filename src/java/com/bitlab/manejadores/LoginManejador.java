@@ -35,7 +35,6 @@ public class LoginManejador {
 
     public void login() {
         try {
-            System.out.println("Logueado");
             System.out.println("Usuario: " + usuario);
             System.out.println("Contra: " + password);
             usuarioEncontrado = inicioSesionControlador.encontrarPorUser(usuario);
