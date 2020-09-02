@@ -28,7 +28,7 @@
                     <p:growl id="messages" globalOnly="true" showDetail="true" />
                     <p:messages id="messagesAll" closable="true" />
 
-                    <!--Formulario de Usuario-->
+                    <!--Formulario de tareas-->
                     <h:form id="formUsuario">
                         <p:dataTable var="tarea" value="#{tareaManejador.entidadLista}" paginator="true" rows="5" reflow="true" >
                             <p:column headerText="Id Tarea" style="text-align: center " sortBy="#{tarea.tarIdPk}" filterBy="#{tarea.tarIdPk}" filterMatchMode="contains">
@@ -37,16 +37,17 @@
                             <p:column headerText="Nombre Tarea" sortBy="#{tarea.tarNombre}" filterBy="#{tarea.tarNombre}" filterMatchMode="contains">
                                 <h:outputText value="#{tarea.tarNombre}" />
                             </p:column>
-                            <p:column headerText="Fecha Inicio" sortBy="#{tarea.tarFechaInicio}" style="width:8%; text-align: center">
-                                <h:outputText value="#{tarea.tarFechaInicio}">
-                                    <f:convertDateTime pattern="dd/MM/yyyy" />
-                                </h:outputText>
-                            </p:column>
                             <p:column headerText="Nombre Profesor" sortBy="#{tarea.proIdFk.proNombres}" filterBy="#{tarea.proIdFk.proNombres}" filterMatchMode="contains">
                                 <h:outputText value="#{tarea.proIdFk.proNombres}" />
                             </p:column>
                             <p:column headerText="Apellido Profesor" sortBy="#{tarea.proIdFk.proApellidos}" filterBy="#{tarea.proIdFk.proApellidos}" filterMatchMode="contains">
                                 <h:outputText value="#{tarea.proIdFk.proApellidos}" />
+                            </p:column>
+                            
+                            <p:column headerText="Fecha Inicio" sortBy="#{tarea.tarFechaInicio}" style="width:8%; text-align: center">
+                                <h:outputText value="#{tarea.tarFechaInicio}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                                </h:outputText>
                             </p:column>
 
                             <p:column headerText="OPCION" style="width:70px; text-align: center ">
@@ -60,7 +61,7 @@
                         </p:dataTable>
                     </h:form>
 
-                    <!--detalle del formulario usuario-->
+                    <!--detalle del formulario Tareas-->
                     <h:form id="formDetailUser">
                         <p:dialog widgetVar="detailDialog" modal="true" header="Detalle del Usuario" >
                             <p:panelGrid columns="4" >
@@ -71,8 +72,8 @@
                                 <h:outputText value="Fecha Inicio" />
                                 <p:calendar value="#{tareaManejador.entidadSeleccionada.tarFechaInicio}" pattern="dd/MM/yyyy"/>
                                 <h:outputText value="Profesor"/>
-                                <p:selectOneMenu value="#{tareaManejador.entidadSeleccionada.usuIdFk}" converter="profesorConverter" >
-                                    <f:selectItems value="#{tareaManejador.listProfesores}" var="profesor" itemLabel="#{profesor.proNombres + " " + profesor.proApellidos}" itemValue="#{profesor}" />
+                                <p:selectOneMenu value="#{tareaManejador.entidadSeleccionada.proIdFk}" converter="profesorConverter" >
+                                    <f:selectItems value="#{tareaManejador.listProfesores}" var="profesor" itemLabel="#{profesor.proNombres}" itemValue="#{profesor}" />
                                 </p:selectOneMenu>
                             </p:panelGrid>
 
