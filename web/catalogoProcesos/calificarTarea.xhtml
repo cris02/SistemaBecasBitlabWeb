@@ -31,11 +31,11 @@
                     <!--Formulario de Califiacion de notas-->
                     <h:form id="formUsuario">
                         <p:dataTable var="nota" value="#{detAluTareaManejador.entidadLista}" paginator="true" rows="5" reflow="true" >
-                            <p:column headerText="Id Nota" style="text-align: center " sortBy="#{nota.tarIdPk}" filterBy="#{nota.tarIdPk}" filterMatchMode="contains">
-                                <h:outputText value="#{nota.tarIdPk}" />
+                            <p:column headerText="Id Nota" style="text-align: center " sortBy="#{nota.detAluTarIdPk}" filterBy="#{nota.detAluTarIdPk}" filterMatchMode="contains">
+                                <h:outputText value="#{nota.detAluTarIdPk}" />
                             </p:column>
                             <p:column headerText="Nombre Alumno" sortBy="#{nota.aluIdFk.aluNombres}" filterBy="#{nota.aluIdFk.aluNombres}" filterMatchMode="contains">
-                                <h:outputText value="#{tarea.aluIdFk.aluNombres}" />
+                                <h:outputText value="#{nota.aluIdFk.aluNombres}" />
                             </p:column>
                             <p:column headerText="Nombre Tarea" sortBy="#{nota.tarIdFk.tarNombre}" filterBy="#{nota.tarIdFk.tarNombre}" filterMatchMode="contains">
                                 <h:outputText value="#{nota.tarIdFk.tarNombre}" />
@@ -71,7 +71,7 @@
                                     <f:selectItems value="#{detAluTareaManejador.listTarea}" var="tarea" itemLabel="#{tarea.tarNombre}" itemValue="#{tarea}" />
                                 </p:selectOneMenu>
                                 <h:outputText value="Alumno"/>
-                                <p:selectOneMenu value="#{detAluTareaManejador.entidadSeleccionada.aluIdFk}" converter="profesorConverter" >
+                                <p:selectOneMenu value="#{detAluTareaManejador.entidadSeleccionada.aluIdFk}" converter="alumnoConverter" >
                                     <f:selectItems value="#{detAluTareaManejador.listAlumno}" var="alumno" itemLabel="#{alumno.aluNombres}" itemValue="#{alumno}" />
                                 </p:selectOneMenu>
                                 <h:outputText value="Nota" />
