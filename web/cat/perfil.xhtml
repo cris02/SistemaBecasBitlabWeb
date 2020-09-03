@@ -28,45 +28,12 @@
                     <p:growl id="messages" globalOnly="true" showDetail="true" />
                     <p:messages id="messagesAll" closable="true" />
 
-                    <!--Formulario de actividades-->
-                    <h:form id="formAct">
-                        <p:dataTable var="act" value="#{actSeleccionManejador.entidadLista}" paginator="true" rows="5" reflow="true" >
-                            <p:column headerText="Id Actividad" style="text-align: center" sortBy="#{act.actSelIdPk}" filterBy="#{act.actSelIdPk}" filterMatchMode="contains">
-                                <h:outputText value="#{act.actSelIdPk}" />
-                            </p:column>
-                            <p:column headerText="Nombre Actividad" sortBy="#{act.actSelNombre}" filterBy="#{act.actSelNombre}" filterMatchMode="contains">
-                                <h:outputText value="#{act.actSelNombre}" />
-                            </p:column>
-                            <p:column headerText="Ponderacion" sortBy="#{act.actSelPonderacion}" filterBy="#{act.actSelPonderacion}" filterMatchMode="contains">
-                                <h:outputText value="#{act.actSelPonderacion}" />
-                            </p:column>
-                            <p:column headerText="Fecha de Creacion" sortBy="#{act.actSelFechaCreacion}" filterBy="#{act.actSelFechaCreacion}" filterMatchMode="contains">
-                                <h:outputText value="#{act.actSelFechaCreacion}">
-                                    <f:convertDateTime pattern="dd/MM/yyyy"/>
-                                </h:outputText>
-                            </p:column>
-                            
-                            <p:column headerText="OPCION" style="width:70px; text-align: center">
-                                <p:commandButton update=":formDetailActividad" oncomplete="PF('detailDialog').show()" icon="pi pi-search" title="Ver">
-                                    <f:setPropertyActionListener value="#{act}" target="#{actSeleccionManejador.entidadSeleccionada}" />
-                                </p:commandButton>
-                                <p:commandButton  actionListener="#{actSeleccionManejador.nuevaEntidad()}" update=":formDetailActividad" title="Crear"
-                                                  oncomplete="PF('detailDialog').show()" icon="pi pi-plus-circle" />
-                            </p:column>
-                        </p:dataTable>
-                    </h:form>
-
                     <!--Detalle de Actividades-->
-                    <h:form id="formDetailActividad" enctype="multipart/form-data">
+                    <h:form >
                         <p:growl showDetail="true" />
-                        <p:dialog widgetVar="detailDialog" modal="true" header="Detalle de Actividad" responsive="true">
                             <p:panelGrid columns="4" >
                                 <h:outputText value="ID Perfil" />
                                 <p:inputText value="#{perfilManejador.entidadSeleccionada.aluIdFk}" class="ui-md-12" disabled="true" />
-                                <h:outputText value="Foto" />
-                                <p:fileUpload  mode="advanced" listener="#{perfilManejador.manejarArchivo}" value="#{perfilManejador.entidadSeleccionada.perFoto}" />
-                                <h:outputText value="CV" />
-                                <p:inputText value="#{perfilManejador.entidadSeleccionada.perCv}" />
                                 <h:outputText value="Nivel Academico" />
                                 <p:inputText value="#{perfilManejador.entidadSeleccionada.perNivelacademico}" />
                                 <h:outputText value="Idioma" />
@@ -83,24 +50,18 @@
                                 <p:selectOneMenu value="#{perfilManejador.entidadSeleccionada.aluIdFk}" converter="alumnoConvertidor">
                                     <f:selectItems value="#{perfilManejador.alumnoLista}" var="alum" itemLabel="#{alum.aluNombres}" itemValue="#{alum}" />
                                 </p:selectOneMenu>
-                                
-                                
-                                
-                               
 
                             </p:panelGrid>
                             <p:panelGrid>
                                 <div class="ui-g badge-light">
                                     <div class="ui-md-12">
-                                        <p:commandButton value="Guardar" actionListener="#{perfilManejador.guardarEntidad()}" onsuccess="PF('detailDialog').hide()"  update=":messages :formAct :messagesAll"/>
-                                        <p:commandButton value="Eliminar" actionListener="#{perfilManejador.eliminarEntidad()}"  update=":messages :formAct :messagesAll" onsuccess="PF('detailDialog').hide()" />
+                                        <p:commandButton value="Guardar" actionListener="#{perfilManejador.guardarEntidad()}" onsuccess="PF('detailDialog').hide()"  update=":messages :messagesAll"/>
+                                        <p:commandButton value="Eliminar" actionListener="#{perfilManejador.eliminarEntidad()}"  update=":messages :messagesAll" onsuccess="PF('detailDialog').hide()" />
                                         <p:commandButton value="Cancelar" onsuccess="PF('detailDialog').hide()" />
                                     </div>
                                 </div>
                             </p:panelGrid>
-                        </p:dialog>
                     </h:form>
-
                     <!--implementando ajax-->
                     <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
                     <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
