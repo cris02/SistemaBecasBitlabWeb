@@ -18,6 +18,7 @@ import javax.faces.context.FacesContext;
 import java.util.List;
 import org.primefaces.model.file.UploadedFile;
 import java.io.*;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import org.primefaces.event.FileUploadEvent;
 
@@ -26,7 +27,7 @@ import org.primefaces.event.FileUploadEvent;
  * @author henry
  */
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class PerfilManejador extends ManejadorAbstracto<Perfil> {
     private PerfilControlador perfilControlador;
     private EstPerfilControlador estadoPerfilControlador;
