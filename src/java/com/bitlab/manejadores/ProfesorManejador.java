@@ -26,13 +26,12 @@ public class ProfesorManejador extends ManejadorAbstracto<Profesor>{
 
     private final ProfesorControlador profesorControlador;
     private final UsuarioControlador usuarioControlador;
-    private final List<Usuario> listUsuarios;
+//    private final List<Usuario> listUsuarios;
     
     public ProfesorManejador() {
         super(Profesor.class);
         profesorControlador = new ProfesorControlador();
         usuarioControlador = new UsuarioControlador();
-        listUsuarios = usuarioControlador.filtrarUsuariosPorRol(4);
     }
 
     @Override
@@ -40,8 +39,8 @@ public class ProfesorManejador extends ManejadorAbstracto<Profesor>{
         return profesorControlador;
     }
 
-    public List<Usuario> getListUsuarios() {
-        return listUsuarios;
-    }    
+//    public List<Usuario> getListUsuarios() {
+//        return listUsuarios;
+//    }    
     
 }
