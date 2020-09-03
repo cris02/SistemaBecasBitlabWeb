@@ -64,8 +64,25 @@
                                 <h:outputText value="ID Perfil" />
                                 <p:inputText value="#{perfilManejador.entidadSeleccionada.aluIdFk}" class="ui-md-12" disabled="true" />
                                 <h:outputText value="Foto" />
-                                <p:fileUpload  mode="advanced" listener="#{perfilManejador.manejarArchivo}" auto="true"/>
-                                <p:graphicImage id="imagen" />
+                                <p:fileUpload  mode="advanced" listener="#{perfilManejador.manejarArchivo}" value="#{perfilManejador.entidadSeleccionada.perFoto}" />
+                                <h:outputText value="CV" />
+                                <p:inputText value="#{perfilManejador.entidadSeleccionada.perCv}" />
+                                <h:outputText value="Nivel Academico" />
+                                <p:inputText value="#{perfilManejador.entidadSeleccionada.perNivelacademico}" />
+                                <h:outputText value="Idioma" />
+                                <p:inputText value="#{perfilManejador.entidadSeleccionada.perIdioma}" />
+                                <h:outputText value="Estado Laboral" />
+                                <p:inputText value="#{perfilManejador.entidadSeleccionada.perEstadolaboral}" />
+                                <h:outputText value="Fecha de creacion" />
+                                <p:datePicker value="#{perfilManejador.entidadSeleccionada.perFechacreacion}"/>
+                                <h:outputText value="Estado Perfil" />
+                                <p:selectOneMenu value="#{perfilManejador.entidadSeleccionada.estPerIdFk}" converter="estadoPerfilConvertidor">
+                                    <f:selectItems value="#{perfilManejador.estadoPerfilLista}" var="estados" itemLabel="#{estados.estPerNombre}" itemValue="#{estados}" />
+                                </p:selectOneMenu>
+                                <h:outputText value="Alumno ID" />
+                                <p:selectOneMenu value="#{perfilManejador.entidadSeleccionada.aluIdFk}" converter="alumnoConvertidor">
+                                    <f:selectItems value="#{perfilManejador.alumnoLista}" var="alum" itemLabel="#{alum.aluNombres}" itemValue="#{alum}" />
+                                </p:selectOneMenu>
                                 
                                 
                                 
