@@ -40,10 +40,6 @@
                             <p:column headerText="Nombre Profesor" sortBy="#{tarea.proIdFk.proNombres}" filterBy="#{tarea.proIdFk.proNombres}" filterMatchMode="contains">
                                 <h:outputText value="#{tarea.proIdFk.proNombres}" />
                             </p:column>
-                            <p:column headerText="Apellido Profesor" sortBy="#{tarea.proIdFk.proApellidos}" filterBy="#{tarea.proIdFk.proApellidos}" filterMatchMode="contains">
-                                <h:outputText value="#{tarea.proIdFk.proApellidos}" />
-                            </p:column>
-                            
                             <p:column headerText="Fecha Inicio" sortBy="#{tarea.tarFechaInicio}" style="width:8%; text-align: center">
                                 <h:outputText value="#{tarea.tarFechaInicio}">
                                     <f:convertDateTime pattern="dd/MM/yyyy" />

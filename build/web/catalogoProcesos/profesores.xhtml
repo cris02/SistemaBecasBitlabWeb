@@ -37,9 +37,6 @@
                             <p:column headerText="Nombre" sortBy="#{profesor.proNombres}" filterBy="#{profesor.proNombres}" filterMatchMode="contains">
                                 <h:outputText value="#{profesor.proNombres}" />
                             </p:column>
-                            <p:column headerText="Apellido" sortBy="#{profesor.proApellidos}" filterBy="#{profesor.proApellidos}" filterMatchMode="contains">
-                                <h:outputText value="#{profesor.proApellidos}" />
-                            </p:column>
                             <p:column headerText="Telefono" sortBy="#{profesor.proTelefono}" filterBy="#{profesor.proTelefono}" filterMatchMode="contains">
                                 <h:outputText value="#{profesor.proTelefono}" />
                             </p:column>
@@ -72,8 +69,6 @@
                                 <p:inputText value="#{profesorManejador.entidadSeleccionada.proIdPk}" disabled="true" />
                                 <h:outputText value="Nombre" />
                                 <p:inputText value="#{profesorManejador.entidadSeleccionada.proNombres}" />
-                                <h:outputText value="Apellido" />
-                                <p:inputText value="#{profesorManejador.entidadSeleccionada.proApellidos}" />
                                 <h:outputText value="Telefono" />
                                 <p:inputText value="#{profesorManejador.entidadSeleccionada.proTelefono}" />
                                 <h:outputText value="Correo" />
