@@ -6,7 +6,6 @@
 package com.bitlab.manejadores;
 
 import com.bitlab.controladores.EvaluadorControlador;
-import com.bitlab.controladores.FabricaControladorAbstracto;
 import com.bitlab.controladores.PlazaControlador;
 import com.bitlab.entidades.Evaluador;
 import com.bitlab.entidades.Plaza;
@@ -21,8 +20,8 @@ import java.util.List;
 @ManagedBean
 @SessionScoped
 public class PlazaManejador extends ManejadorAbstracto<Plaza>{
-    private PlazaControlador plazaControlador;
-    private EvaluadorControlador evaluadorControlador;
+    private final PlazaControlador plazaControlador;
+    private final EvaluadorControlador evaluadorControlador;
     private List<Evaluador> evaluadorLista;
     /**
      * Creates a new instance of PlazaManejador
@@ -35,7 +34,7 @@ public class PlazaManejador extends ManejadorAbstracto<Plaza>{
     }
 
     @Override
-    public FabricaControladorAbstracto<Plaza> obtenerControlador() {
+    public PlazaControlador obtenerControlador() {
         return plazaControlador;
     }
 
