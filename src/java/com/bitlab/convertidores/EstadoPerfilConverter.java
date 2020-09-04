@@ -6,7 +6,6 @@
 package com.bitlab.convertidores;
 
 import com.bitlab.controladores.EstPerfilControlador;
-import com.bitlab.controladores.RolControlador;
 import com.bitlab.entidades.EstPerfil;
 import java.util.logging.Level;
 import java.util.logging.Logger;
