@@ -5,39 +5,39 @@
  */
 package com.bitlab.manejadores;
 
-import com.bitlab.controladores.ProfesorControlador;
+import com.bitlab.controladores.EvaluadorControlador;
 import com.bitlab.controladores.UsuarioControlador;
-import com.bitlab.entidades.Profesor;
+import com.bitlab.entidades.Evaluador;
 import com.bitlab.entidades.Usuario;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-
 /**
  *
  * @author Aguilar
+ * Este manejador trabaja con la tabla EVALUADOR
  */
 
 @ManagedBean
 @ViewScoped
 
-public class ProfesorManejador extends ManejadorAbstracto<Profesor>{
-
-    private final ProfesorControlador profesorControlador;
+public class EvaluadorManejador extends ManejadorAbstracto<Evaluador>{
+    
+    private final EvaluadorControlador evaluadorControlador;
     private final UsuarioControlador usuarioControlador;
     private List<Usuario> listUsuarios;
-    
-    public ProfesorManejador() {
-        super(Profesor.class);
-        profesorControlador = new ProfesorControlador();
+
+    public EvaluadorManejador() {
+        super(Evaluador.class);
+        evaluadorControlador = new EvaluadorControlador();
         usuarioControlador = new UsuarioControlador();
-        listUsuarios = usuarioControlador.filtrarUsuariosPorRol(4);
+        listUsuarios = usuarioControlador.filtrarUsuariosPorRol(1, 3); //filtrar por rol 1 y 3
     }
 
     @Override
-    public ProfesorControlador obtenerControlador() {
-        return profesorControlador;
+    public EvaluadorControlador obtenerControlador() {
+       return evaluadorControlador;
     }
 
     public List<Usuario> getListUsuarios() {
@@ -47,5 +47,5 @@ public class ProfesorManejador extends ManejadorAbstracto<Profesor>{
     public void setListUsuarios(List<Usuario> listUsuarios) {
         this.listUsuarios = listUsuarios;
     }
-       
+    
 }

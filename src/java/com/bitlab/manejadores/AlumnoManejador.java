@@ -31,7 +31,7 @@ public class AlumnoManejador extends ManejadorAbstracto<Alumno>{
         super(Alumno.class);
         alumnoControlador = new AlumnoControlador();
         usuarioControlador = new UsuarioControlador();
-        listUsuario = usuarioControlador.encontrarEntidades();
+        listUsuario = usuarioControlador.filtrarUsuariosPorRol(5); // solo mostrara los usuarios con rol alumnos
     }
 
     @Override

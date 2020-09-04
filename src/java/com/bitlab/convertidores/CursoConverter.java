@@ -5,8 +5,8 @@
  */
 package com.bitlab.convertidores;
 
-import com.bitlab.controladores.EvaluadorControlador;
-import com.bitlab.entidades.Evaluador;
+import com.bitlab.controladores.CursoControlador;
+import com.bitlab.entidades.Curso;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.component.UIComponent;
@@ -19,23 +19,23 @@ import javax.faces.convert.FacesConverter;
  * @author Aguilar
  */
 
-@FacesConverter("evaluadorConverter")
-public class EvaluadorConverter implements Converter{
+@FacesConverter("cursoConverter")
+public class CursoConverter implements Converter{
 
     @Override
     public Object getAsObject(FacesContext fc, UIComponent uic, String string) {
         try {
-            EvaluadorControlador evaluadorControlador = new EvaluadorControlador();
-            return evaluadorControlador.encontrar(Integer.parseInt(string));
+            CursoControlador cursoControlador = new CursoControlador();
+            return cursoControlador.encontrar(Integer.parseInt(string));
         } catch (Exception ex) {
-            Logger.getLogger(EvaluadorConverter.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CursoConverter.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
 
     @Override
     public String getAsString(FacesContext fc, UIComponent uic, Object o) {
-        return ((Evaluador) o).getEvaIdPk().toString();
+        return ((Curso) o).getCurIdPk().toString();
     }
     
 }
