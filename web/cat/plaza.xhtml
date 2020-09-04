@@ -30,26 +30,30 @@
 
                     <!--Formulario de Plazas-->
                     <h:form id="formAlumnos">
-                        <p:dataTable var="plazas" value="#{plazaManejador.entidadLista}" paginator="true" rows="5" reflow="true" >
-                            <p:column headerText="Id Plaza" style="text-align: center" sortBy="#{plazaManejador.plaIdPk}" filterBy="#{plazaManejador.plaIdPk}" filterMatchMode="contains">
-                                <h:outputText value="#{plazaManejador.plaIdPk}" />
+                        <p:dataTable var="plaza" value="#{plazaManejador.entidadLista}" paginator="true" rows="5" reflow="true" >
+                            <p:column headerText="Id Plaza" style="text-align: center" sortBy="#{plaza.plaIdPk}" filterBy="#{plaza.plaIdPk}" filterMatchMode="contains">
+                                <h:outputText value="#{plaza.plaIdPk}" />
                             </p:column>
-                            <p:column headerText="Nombre Plaza" sortBy="#{plazaManejador.plaNombre}" filterBy="#{plazaManejador.plaNombre}" filterMatchMode="contains">
-                                <h:outputText value="#{plazaManejador.plaNombre}" />
+                            <p:column headerText="Nombre Plaza" sortBy="#{plaza.plaNombre}" filterBy="#{plaza.plaNombre}" filterMatchMode="contains">
+                                <h:outputText value="#{plaza.plaNombre}" />
                             </p:column>
-                            <p:column headerText="Fecha de Publicacion" sortBy="#{plazaManejador.plaFechaPublicacion}" filterBy="#{plazaManejador.plaFechaPublicacion}" filterMatchMode="contains">
-                                <h:outputText value="#{plazaManejador.plaFechaPublicacion}" />
+                            <p:column headerText="Descripcion" sortBy="#{plaza.plaDescripcion}" filterBy="#{plaza.plaDescripcion}" filterMatchMode="contains">
+                                <h:outputText value="#{plaza.plaDescripcion}" />
                             </p:column>
-                            <p:column headerText="Fecha Finalizacion" sortBy="#{plazaManejador.plaFechaFin}" filterBy="#{plazaManejador.plaFechaFin}" filterMatchMode="contains">
-                                <h:outputText value="#{plazaManejador.plaFechaFin}" />
+                            <p:column headerText="Fecha de Publicacion" style="width:10%; text-align: center">
+                                <h:outputText value="#{plaza.plaFechaPublicacion}" >
+                                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                                </h:outputText>
                             </p:column>
-                            <p:column headerText="Descripcion" sortBy="#{plazaManejador.plaDescripcion}" filterBy="#{plazaManejador.plaDescripcion}" filterMatchMode="contains">
-                                <h:outputText value="#{plazaManejador.plaDescripcion}" />
+                            <p:column headerText="Fecha Finalizacion" style="width:10%; text-align: center">
+                                <h:outputText value="#{plaza.plaFechaFin}" >
+                                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                                </h:outputText>
                             </p:column>
 
                             <p:column headerText="OPCION" style="width:70px; text-align: center">
                                 <p:commandButton update=":formDetailAlumnos" oncomplete="PF('detailDialog').show()" icon="pi pi-search" title="Ver">
-                                    <f:setPropertyActionListener value="#{plazas}" target="#{plazaManejador.entidadSeleccionada}" />
+                                    <f:setPropertyActionListener value="#{plaza}" target="#{plazaManejador.entidadSeleccionada}" />
                                 </p:commandButton>
                                 <p:commandButton  actionListener="#{plazaManejador.nuevaEntidad()}" update=":formDetailAlumnos" title="Crear"
                                                   oncomplete="PF('detailDialog').show()" icon="pi pi-plus-circle" />
@@ -73,7 +77,7 @@
                                 <p:inputText value="#{plazaManejador.entidadSeleccionada.plaDescripcion}"/>
                                 <h:outputText value="Evaluador" />
                                 <p:inputText value="#{plazaManejador.entidadSeleccionada.evaIdFk}"/>
-                                <p:selectOneMenu value="#{plazaManejador.entidadSeleccionada.evaIdFk}" converter="evaluadorConvertidor" >
+                                <p:selectOneMenu value="#{plazaManejador.entidadSeleccionada.evaIdFk}" converter="evaluadorConverter" >
                                     <f:selectItems value="#{plazaManejador.evaluadorLista}" var="evaluador" itemLabel="#{evaluador.evaNombres}" itemValue="#{evaluador}" />
                                 </p:selectOneMenu>
                                 
