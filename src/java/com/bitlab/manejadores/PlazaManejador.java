@@ -6,7 +6,6 @@
 package com.bitlab.manejadores;
 
 import com.bitlab.controladores.EvaluadorControlador;
-import com.bitlab.controladores.FabricaControladorAbstracto;
 import com.bitlab.controladores.PlazaControlador;
 import com.bitlab.entidades.Evaluador;
 import com.bitlab.entidades.Plaza;
