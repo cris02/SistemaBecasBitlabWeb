@@ -28,7 +28,7 @@
                     <p:growl id="messages" globalOnly="true" showDetail="true" />
                     <p:messages id="messagesAll" closable="true" />
 
-                    <!--Formulario de Usuario-->
+                    <!--Formulario de profesor-->
                     <h:form id="formUsuario">
                         <p:dataTable var="profesor" value="#{profesorManejador.entidadLista}" paginator="true" rows="5" reflow="true" >
                             <p:column headerText="Id Usuario" style="text-align: center " sortBy="#{profesor.proIdPk}" filterBy="#{profesor.proIdPk}" filterMatchMode="contains">
@@ -61,9 +61,9 @@
                         </p:dataTable>
                     </h:form>
 
-                    <!--detalle del formulario usuario-->
+                    <!--detalle del formulario profesor-->
                     <h:form id="formDetailUser">
-                        <p:dialog widgetVar="detailDialog" modal="true" header="Detalle del Usuario" >
+                        <p:dialog widgetVar="detailDialog" modal="true" header="Detalle del Profesor" >
                             <p:panelGrid columns="4" >
                                 <h:outputText value="ID Usuario" />
                                 <p:inputText value="#{profesorManejador.entidadSeleccionada.proIdPk}" disabled="true" />
