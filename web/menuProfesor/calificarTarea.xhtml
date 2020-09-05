@@ -43,10 +43,10 @@
                                     <p:column headerText="Nombre Tarea" sortBy="#{nota.tarIdFk.tarNombre}" filterBy="#{nota.tarIdFk.tarNombre}" filterMatchMode="contains">
                                         <h:outputText value="#{nota.tarIdFk.tarNombre}" />
                                     </p:column>
-                                    <p:column headerText="Nota" sortBy="#{nota.detAluTarNota}" filterBy="#{nota.detAluTarNota}" filterMatchMode="contains">
+                                    <p:column headerText="Nota" sortBy="#{nota.detAluTarNota}" filterBy="#{nota.detAluTarNota}" filterMatchMode="contains" style="width:12%; text-align: center">
                                         <h:outputText value="#{nota.detAluTarNota}" />
                                     </p:column>
-                                    <p:column headerText="Fecha Calificacion" sortBy="#{nota.detAluTarFechaCalificacion}" style="width:8%; text-align: center">
+                                    <p:column headerText="Fecha Calificacion" sortBy="#{nota.detAluTarFechaCalificacion}" style="width:12%; text-align: center">
                                         <h:outputText value="#{nota.detAluTarFechaCalificacion}">
                                             <f:convertDateTime pattern="dd/MM/yyyy" />
                                         </h:outputText>
@@ -88,8 +88,8 @@
                                     <p:panelGrid>
                                         <div class="ui-g badge-light">
                                             <div class="ui-md-12">
-                                                <p:commandButton value="Guardar" actionListener="#{tareaManejador.guardarEntidad()}" onsuccess="PF('detailDialog').hide()"  update=":messages :formUsuario :messagesAll"/>
-                                                <p:commandButton value="Eliminar" actionListener="#{tareaManejador.eliminarEntidad()}"  update=":messages :formUsuario :messagesAll" onsuccess="PF('detailDialog').hide()" />
+                                                <p:commandButton value="Guardar" actionListener="#{detAluTareaManejador.guardarEntidad()}" onsuccess="PF('detailDialog').hide()"  update=":messages :formUsuario :messagesAll"/>
+                                                <p:commandButton value="Eliminar" actionListener="#{detAluTareaManejador.eliminarEntidad()}"  update=":messages :formUsuario :messagesAll" onsuccess="PF('detailDialog').hide()" />
                                             </div>
                                         </div>
 
