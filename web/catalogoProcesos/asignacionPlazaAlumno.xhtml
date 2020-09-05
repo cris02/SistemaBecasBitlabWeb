@@ -49,7 +49,7 @@
                             <p:column headerText="Candidato" sortBy="#{asignarPlaza.perIdFk.aluIdFk.aluNombres}" filterBy="#{asignarPlaza.perIdFk.aluIdFk.aluNombres}" filterMatchMode="contains">
                                 <h:outputText value="#{asignarPlaza.perIdFk.aluIdFk.aluNombres}" />
                             </p:column>
-                            <p:column headerText="Fecha Publicaion" sortBy="#{asignarPlaza.plaIdFk.plaFechaPublicacion}" style="width:8%; text-align: center">
+                            <p:column headerText="Fecha Publicacion" sortBy="#{asignarPlaza.plaIdFk.plaFechaPublicacion}" style="width:8%; text-align: center">
                                 <h:outputText value="#{asignarPlaza.plaIdFk.plaFechaPublicacion}">
                                     <f:convertDateTime pattern="dd/MM/yyyy" />
                                 </h:outputText>
