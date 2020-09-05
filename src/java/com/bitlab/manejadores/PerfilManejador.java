@@ -13,7 +13,6 @@ import com.bitlab.entidades.Alumno;
 import com.bitlab.entidades.EstPerfil;
 import com.bitlab.entidades.Perfil;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import java.util.List;
 import org.primefaces.model.file.UploadedFile;
@@ -55,12 +54,11 @@ public class PerfilManejador extends ManejadorAbstracto<Perfil> {
         rutaImagen = rutaImagen + File.separator + "images" + File.separator + archivo.getFileName();
         try {
 //            InputStream in = archivo.getInputStream();
-            FileOutputStream out = new FileOutputStream(rutaImagen);
-           
+            //FileOutputStream out = new FileOutputStream(rutaImagen);          
             
-            out.write(contenidoBytes);
-            out.close();
-            System.out.println("Ruta Imagen: " +rutaImagen);
+            //out.write(contenidoBytes);
+            //out.close();
+            //System.out.println("Ruta Imagen: " +rutaImagen);
             
         } catch (Exception e) {
             e.printStackTrace();

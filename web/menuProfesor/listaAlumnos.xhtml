@@ -52,14 +52,6 @@
                                     <p:column headerText="Correo" sortBy="#{alumnos.aluCorreo}" filterBy="#{alumnos.aluCorreo}" filterMatchMode="contains">
                                         <h:outputText value="#{alumnos.aluCorreo}" />
                                     </p:column>
-
-                                    <p:column headerText="OPCION" style="width:70px; text-align: center">
-                                        <p:commandButton update=":formDetailAlumnos" oncomplete="PF('detailDialog').show()" icon="pi pi-search" title="Ver">
-                                            <f:setPropertyActionListener value="#{alumnos}" target="#{alumnoManejador.entidadSeleccionada}" />
-                                        </p:commandButton>
-                                        <p:commandButton  actionListener="#{alumnoManejador.nuevaEntidad()}" update=":formDetailAlumnos" title="Crear"
-                                                          oncomplete="PF('detailDialog').show()" icon="pi pi-plus-circle" />
-                                    </p:column>
                                 </p:dataTable>
                             </h:form>
 

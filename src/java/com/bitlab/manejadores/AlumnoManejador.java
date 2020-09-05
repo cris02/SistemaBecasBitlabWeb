@@ -35,7 +35,7 @@ public class AlumnoManejador extends ManejadorAbstracto<Alumno>{
     }
 
     @Override
-    public FabricaControladorAbstracto<Alumno> obtenerControlador() {
+    public AlumnoControlador obtenerControlador() {
         return alumnoControlador;
     }
 

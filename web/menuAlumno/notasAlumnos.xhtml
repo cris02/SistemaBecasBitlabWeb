@@ -51,15 +51,6 @@
                                             <f:convertDateTime pattern="dd/MM/yyyy" />
                                         </h:outputText>
                                     </p:column>
-
-                                    <p:column headerText="OPCION" style="width:70px; text-align: center ">
-
-                                        <p:commandButton update=":formDetailUser" oncomplete="PF('detailDialog').show()" icon="pi pi-search" title="Ver">
-                                            <f:setPropertyActionListener value="#{nota}" target="#{detAluTareaManejador.entidadSeleccionada}" />
-                                        </p:commandButton>
-                                        <p:commandButton actionListener="#{detAluTareaManejador.nuevaEntidad()}" update=":formDetailUser" title="Crear"
-                                                         oncomplete="PF('detailDialog').show()" icon="pi pi-plus-circle" />
-                                    </p:column>
                                 </p:dataTable>
                             </h:form>
 
