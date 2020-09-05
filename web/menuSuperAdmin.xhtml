@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <!--menu de Super administrador-->
+        <div class="nav">
+            <div class="sb-sidenav-menu-heading">MODULO SUPER-ADMIN</div>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                Gestionar Cursos
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <h:link class="nav-link" outcome="/menuProceso/curso/alumnos" value="Gestion Alumnos" />
+                    <h:link class="nav-link" outcome="/menuProceso/curso/cursos" value="Gestion Cursos" />
+                    <h:link class="nav-link" outcome="/menuProceso/curso/evaluadores" value="Gestion Evaluadores" />
+                    <h:link class="nav-link" outcome="/menuProceso/curso/profesores" value="Gestion Profesores" />
+                    <h:link class="nav-link" outcome="/menuProceso/curso/tecnologias" value="Gestion Tecnologias" />
+                    <h:link class="nav-link" outcome="/menuProceso/curso/estadoPerfil" value="Gestion Estado de Perfil" />
+                    
+
+                    <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+                    <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                        <h:outputLabel value="Cargando..." />
+                    </p:dialog>
+                </nav>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="sb-sidenav-menu-heading">MODULO SUPER-ADMIN</div>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                Gestionar Procesos
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <h:link class="nav-link" outcome="/menuProceso/proceso/actividadSeleccion" value="Gestion Proceso" />
+                    <h:link class="nav-link" outcome="/menuProceso/proceso/detalleProcesoCandidato" value="Detalle Procesos" />
+                    <h:link class="nav-link" outcome="/menuProceso/proceso/plaza" value="Gestion Plazas" />
+                    <h:link class="nav-link" outcome="/menuProceso/proceso/asignacionPlazaAlumno" value="Gestion Empleo" />
+                    <h:link class="nav-link" outcome="/menuProceso/proceso/estadoPlaza" value="Gestion Estado Plaza" />
+                    <h:link class="nav-link" outcome="/menuProceso/proceso/estadoActividad" value="Gestion Estado Actividad" />
+                    
+
+                    <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+                    <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                        <h:outputLabel value="Cargando..." />
+                    </p:dialog>
+                </nav>
+            </div>
+        </div>
+        <!--menu de super administrador-->
+    </h:body>
+</html>
+

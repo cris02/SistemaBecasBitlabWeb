@@ -65,8 +65,17 @@
                     <div class="sb-sidenav-menu">
 
                         <!--menu dinamico--> 
+                        <ui:insert name="menuProfesor" >
+                            <ui:include src="menuProfesor.xhtml" /> 
+                        </ui:insert>
+                         <ui:insert name="menuAlumno" >
+                            <ui:include src="menuAlumno.xhtml" /> 
+                        </ui:insert>
                         <ui:insert name="menuAdmin" >
-                            <ui:include src="profesor.xhtml" /> 
+                            <ui:include src="menuAdmin.xhtml" /> 
+                        </ui:insert>
+                        <ui:insert name="menuSuperAdmin" >
+                            <ui:include src="menuSuperAdmin.xhtml" /> 
                         </ui:insert>
 
 

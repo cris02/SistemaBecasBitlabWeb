@@ -9,14 +9,14 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <ui:composition template="../index.xhtml">
+        <ui:composition template="../../index.xhtml">
             <ui:define name="content">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card mb-4">
                             <div class="card-header text-center badge-primary">
                                 <i class="fas fa-table mr-1"></i>
-                                Modulo de Monitoreo de Alumnos
+                                Modulo de Administracion de Alumnos
                             </div>
 
                             <!--Aplicando estilos CSS-->
@@ -63,6 +63,45 @@
                                 </p:dataTable>
                             </h:form>
 
+                            <!--Detalle de Alumnos-->
+                            <h:form id="formDetailAlumnos" >
+                                <p:dialog widgetVar="detailDialog" modal="true" header="Detalle de Alumno" responsive="true">
+                                    <p:panelGrid columns="4" >
+                                        <h:outputText value="ID Alumno" />
+                                        <p:inputText value="#{alumnoManejador.entidadSeleccionada.aluIdPk}" class="ui-md-12" disabled="true" />
+                                        <h:outputText value="Nombre" />
+                                        <p:inputText value="#{alumnoManejador.entidadSeleccionada.aluNombres}" />
+                                        <h:outputText value="Edad" />
+                                        <p:inputText value="#{alumnoManejador.entidadSeleccionada.aluEdad}" />
+                                        <h:outputText value="Telefono" />
+                                        <p:inputText value="#{alumnoManejador.entidadSeleccionada.aluTelefono}"/>
+                                        <h:outputText value="DUI" />
+                                        <p:inputText value="#{alumnoManejador.entidadSeleccionada.aluDui}"/>
+                                        <h:outputText value="Direccion" />
+                                        <p:inputText value="#{alumnoManejador.entidadSeleccionada.aluDireccion}"/>
+                                        <h:outputText value="Fecha de Nacimiento" />
+                                        <p:calendar value="#{alumnoManejador.entidadSeleccionada.aluFechaNac}" pattern="dd/MM/yyyy"/>
+                                        <h:outputText value="Genero" />
+                                        <p:inputText value="#{alumnoManejador.entidadSeleccionada.aluGenero}"/>
+                                        <h:outputText value="Correo" />
+                                        <p:inputText value="#{alumnoManejador.entidadSeleccionada.aluCorreo}" />
+                                        <h:outputText value="Usuario" />
+                                        <p:selectOneMenu value="#{alumnoManejador.entidadSeleccionada.usuIdFk}" converter="usuarioConverter" >
+                                            <f:selectItems value="#{alumnoManejador.listUsuario}" var="usuario" itemLabel="#{usuario.usuUser}" itemValue="#{usuario}" />
+                                        </p:selectOneMenu>
+                                    </p:panelGrid>
+                                    <p:panelGrid>
+                                        <div class="ui-g badge-light">
+                                            <div class="ui-md-12">
+                                                <p:commandButton value="Guardar" actionListener="#{alumnoManejador.guardarEntidad()}" onsuccess="PF('detailDialog').hide()"  update=":messages :formAlumnos :messagesAll"/>
+                                                <p:commandButton value="Eliminar" actionListener="#{alumnoManejador.eliminarEntidad()}"  update=":messages :formAlumnos :messagesAll" onsuccess="PF('detailDialog').hide()" />
+                                                <p:commandButton value="Cancelar" onsuccess="PF('detailDialog').hide()" />
+                                            </div>
+                                        </div>
+                                    </p:panelGrid>
+                                </p:dialog>
+                            </h:form>
+
                             <!--implementando ajax-->
                             <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
                             <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
@@ -73,6 +112,6 @@
                 </div>
             </ui:define>
         </ui:composition>
+
     </h:body>
 </html>
-
