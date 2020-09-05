@@ -12,7 +12,7 @@
                 <div class="card mb-4">
                     <div class="card-header text-center badge-primary">
                         <i class="fas fa-table mr-1"></i>
-                        Modulo de Administracion de Estado de Perfil
+                        Modulo de Administracion de Estado de la Plaza
                     </div>
 
                     <!--Aplicando estilos CSS-->
@@ -27,7 +27,7 @@
                     <p:growl id="messages" globalOnly="true" showDetail="true" />
                     <p:messages id="messagesAll" closable="true" />
 
-                    <!--Formulario de rol-->
+                    <!--Formulario de estado plaza-->
                     <h:form id="formRol">
                         <p:dataTable var="estadoPlaza" value="#{estadoPlazaManejador.entidadLista}" paginator="true" rows="5" reflow="true" >
                             <p:column headerText="Id Estado" style="text-align: center" sortBy="#{estadoPlaza.estPlaIdPk}" filterBy="#{estadoPlaza.estPlaIdPk}" filterMatchMode="contains">
@@ -46,9 +46,9 @@
                         </p:dataTable>
                     </h:form>
 
-                    <!--Detalle de Rol-->
+                    <!--Detalle de estado plaza-->
                     <h:form id="formDetailRol" >
-                        <p:dialog widgetVar="detailDialog" modal="true" header="Detalle de Rol" responsive="true">
+                        <p:dialog widgetVar="detailDialog" modal="true" header="Detalle del Estado de la Plaza" responsive="true">
                             <p:panelGrid columns="4">
                                 <h:outputText value="Nombre" />
                                 <p:inputText value="#{estadoPlazaManejador.entidadSeleccionada.estPlaNombre}" />
