@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-header text-center badge-primary">
+                        <i class="fas fa-table mr-1"></i>
+                        Modulo de Califiacion de Tareas
+                    </div>
+
+                    <!--Aplicando estilos CSS-->
+                    <style type="text/css">
+                        .ui-g div {
+                            /*background-color: #ededed;*/
+                            text-align: center;
+                            border: 1px solid #fafafa;
+                        }
+                    </style>
+
+                    <p:growl id="messages" globalOnly="true" showDetail="true" />
+                    <p:messages id="messagesAll" closable="true" />
+
+                    <!--Formulario de Califiacion de notas-->
+                    <h:form id="formUsuario">
+                        <p:dataTable var="nota" value="#{detAluTareaManejador.entidadLista}" paginator="true" rows="5" reflow="true" >
+                            <p:column headerText="Id Nota" style="text-align: center " sortBy="#{nota.detAluTarIdPk}" filterBy="#{nota.detAluTarIdPk}" filterMatchMode="contains">
+                                <h:outputText value="#{nota.detAluTarIdPk}" />
+                            </p:column>
+                            <p:column headerText="Nombre Alumno" sortBy="#{nota.aluIdFk.aluNombres}" filterBy="#{nota.aluIdFk.aluNombres}" filterMatchMode="contains">
+                                <h:outputText value="#{nota.aluIdFk.aluNombres}" />
+                            </p:column>
+                            <p:column headerText="Nombre Tarea" sortBy="#{nota.tarIdFk.tarNombre}" filterBy="#{nota.tarIdFk.tarNombre}" filterMatchMode="contains">
+                                <h:outputText value="#{nota.tarIdFk.tarNombre}" />
+                            </p:column>
+                            <p:column headerText="Nota" sortBy="#{nota.detAluTarNota}" filterBy="#{nota.detAluTarNota}" filterMatchMode="contains">
+                                <h:outputText value="#{nota.detAluTarNota}" />
+                            </p:column>
+                            <p:column headerText="Fecha Calificacion" sortBy="#{nota.detAluTarFechaCalificacion}" style="width:8%; text-align: center">
+                                <h:outputText value="#{nota.detAluTarFechaCalificacion}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                                </h:outputText>
+                            </p:column>
+
+                            <p:column headerText="OPCION" style="width:70px; text-align: center ">
+
+                                <p:commandButton update=":formDetailUser" oncomplete="PF('detailDialog').show()" icon="pi pi-search" title="Ver">
+                                    <f:setPropertyActionListener value="#{nota}" target="#{detAluTareaManejador.entidadSeleccionada}" />
+                                </p:commandButton>
+                                <p:commandButton actionListener="#{detAluTareaManejador.nuevaEntidad()}" update=":formDetailUser" title="Crear"
+                                                 oncomplete="PF('detailDialog').show()" icon="pi pi-plus-circle" />
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+
+                    <!--detalle del formulario calificaion de notas-->
+                    <h:form id="formDetailUser">
+                        <p:dialog widgetVar="detailDialog" modal="true" header="Detalle de Calificacion" >
+                            <p:panelGrid columns="4" >
+                                <h:outputText value="ID Tarea" />
+                                <p:inputText value="#{detAluTareaManejador.entidadSeleccionada.detAluTarIdPk}" disabled="true" />
+                                <h:outputText value="Tarea"/>
+                                <p:selectOneMenu value="#{detAluTareaManejador.entidadSeleccionada.tarIdFk}" converter="tareaConverter" >
+                                    <f:selectItems value="#{detAluTareaManejador.listTarea}" var="tarea" itemLabel="#{tarea.tarNombre}" itemValue="#{tarea}" />
+                                </p:selectOneMenu>
+                                <h:outputText value="Alumno"/>
+                                <p:selectOneMenu value="#{detAluTareaManejador.entidadSeleccionada.aluIdFk}" converter="alumnoConverter" >
+                                    <f:selectItems value="#{detAluTareaManejador.listAlumno}" var="alumno" itemLabel="#{alumno.aluNombres}" itemValue="#{alumno}" />
+                                </p:selectOneMenu>
+                                <h:outputText value="Nota" />
+                                <p:inputText value="#{detAluTareaManejador.entidadSeleccionada.detAluTarNota}" />
+                                <h:outputText value="Fecha Calificacion" />
+                                <p:calendar value="#{detAluTareaManejador.entidadSeleccionada.detAluTarFechaCalificacion}" pattern="dd/MM/yyyy"/>
+                                 <h:outputText value="Observacion" />
+                                 <p:inputTextarea rows="4" cols="20" value="#{detAluTareaManejador.entidadSeleccionada.detAluTarObservacion}" />
+                            </p:panelGrid>
+
+                            <p:panelGrid>
+                                <div class="ui-g badge-light">
+                                    <div class="ui-md-12">
+                                        <p:commandButton value="Guardar" actionListener="#{tareaManejador.guardarEntidad()}" onsuccess="PF('detailDialog').hide()"  update=":messages :formUsuario :messagesAll"/>
+                                        <p:commandButton value="Eliminar" actionListener="#{tareaManejador.eliminarEntidad()}"  update=":messages :formUsuario :messagesAll" onsuccess="PF('detailDialog').hide()" />
+                                    </div>
+                                </div>
+
+                            </p:panelGrid>
+                        </p:dialog>
+                    </h:form>
+
+                    <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+                    <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                        <h:outputLabel value="Cargando..." />
+                    </p:dialog>
+
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+

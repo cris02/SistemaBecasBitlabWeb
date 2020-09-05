@@ -23,7 +23,7 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>plantillaPrincipal.bitlab</welcome-file>
+        <welcome-file>index.bitlab</welcome-file>
     </welcome-file-list>
     
     <!--Filtros agregados -->
